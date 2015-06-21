@@ -15,7 +15,7 @@ extension OTMClient {
         
         // MARK: URLs
         static let BaseURL : String = "https://www.udacity.com/api/"
-        
+        static let SignUpURL : String = "https://www.udacity.com/account/auth#!/signin"
     }
     
     struct UdacityMethods {

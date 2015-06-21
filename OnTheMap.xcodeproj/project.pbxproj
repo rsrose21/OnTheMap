@@ -15,6 +15,7 @@
 		3DF9623C1B3737B400C87CBF /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9623B1B3737B400C87CBF /* OnTheMapTests.swift */; };
 		3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962481B37396D00C87CBF /* OTMClient.swift */; };
 		3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */; };
+		3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9624C1B376EDC00C87CBF /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3DF9623B1B3737B400C87CBF /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
 		3DF962481B37396D00C87CBF /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
+		3DF9624C1B376EDC00C87CBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		3DF962461B3738D400C87CBF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3DF9624C1B376EDC00C87CBF /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				3DF962281B3737B400C87CBF /* ViewController.swift in Sources */,
 				3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */,
 				3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */,
+				3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */,
 				3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
