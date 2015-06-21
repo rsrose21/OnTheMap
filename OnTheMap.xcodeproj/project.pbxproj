@@ -13,6 +13,8 @@
 		3DF9622D1B3737B400C87CBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9622C1B3737B400C87CBF /* Images.xcassets */; };
 		3DF962301B3737B400C87CBF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9622E1B3737B400C87CBF /* LaunchScreen.xib */; };
 		3DF9623C1B3737B400C87CBF /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9623B1B3737B400C87CBF /* OnTheMapTests.swift */; };
+		3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962481B37396D00C87CBF /* OTMClient.swift */; };
+		3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		3DF962351B3737B400C87CBF /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF9623A1B3737B400C87CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF9623B1B3737B400C87CBF /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
+		3DF962481B37396D00C87CBF /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				3DF962251B3737B400C87CBF /* AppDelegate.swift */,
+				3DF962471B3738DD00C87CBF /* View */,
+				3DF962461B3738D400C87CBF /* Controller */,
+				3DF962451B3738C700C87CBF /* Model */,
 				3DF962271B3737B400C87CBF /* ViewController.swift */,
 				3DF962291B3737B400C87CBF /* Main.storyboard */,
 				3DF9622C1B3737B400C87CBF /* Images.xcassets */,
@@ -110,6 +117,29 @@
 				3DF9623A1B3737B400C87CBF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DF962451B3738C700C87CBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DF962481B37396D00C87CBF /* OTMClient.swift */,
+				3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3DF962461B3738D400C87CBF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3DF962471B3738DD00C87CBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF962281B3737B400C87CBF /* ViewController.swift in Sources */,
+				3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */,
+				3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */,
 				3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
