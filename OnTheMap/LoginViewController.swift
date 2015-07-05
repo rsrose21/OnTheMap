@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UINavigationController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapViewController") as! UIViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
@@ -78,7 +78,9 @@ class LoginViewController: UIViewController {
     func displayError(errorString: String?) {
         dispatch_async(dispatch_get_main_queue(), {
             if let errorString = errorString {
-                self.debugTextLabel.text = errorString
+                let alert = UIAlertController(title: nil, message: errorString, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         })
     }

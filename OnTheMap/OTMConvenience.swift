@@ -12,6 +12,7 @@ import Foundation
 // MARK: - Convenient Resource Methods
 
 extension OTMClient {
+    
     // MARK: - Authentication (GET) Methods
     /*
     Steps for Authentication...

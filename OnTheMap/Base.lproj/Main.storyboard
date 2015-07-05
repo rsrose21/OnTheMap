@@ -141,11 +141,44 @@
             </objects>
             <point key="canvasLocation" x="3298" y="2550"/>
         </scene>
-        <!--List-->
+        <!--Map View Controller-->
+        <scene sceneID="UCd-JS-7JS">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" id="mRK-Y3-vMy" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KOp-gw-4Vk"/>
+                        <viewControllerLayoutGuide type="bottom" id="yZT-Ml-aNn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="avy-in-5gj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-T6-1WY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DjQ-T6-1WY" secondAttribute="trailing" id="9tV-tw-wJn"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="top" secondItem="avy-in-5gj" secondAttribute="top" id="MfH-BZ-Ine"/>
+                            <constraint firstAttribute="bottom" secondItem="DjQ-T6-1WY" secondAttribute="bottom" id="gjQ-wA-wUj"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="leading" secondItem="avy-in-5gj" secondAttribute="leading" id="nRI-EF-5au"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="map" id="sHv-e9-WUB"/>
+                    <connections>
+                        <outlet property="mapView" destination="DjQ-T6-1WY" id="On7-Zv-BbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ltb-Lp-3aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3301" y="973"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="k46-P0-sNT">
             <objects>
                 <navigationController storyboardIdentifier="mapTabViewController" id="6sP-T8-d02" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" id="mrD-SJ-ctE"/>
+                    <tabBarItem key="tabBarItem" title="" image="list" id="mrD-SJ-ctE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZEY-pP-Kig">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -170,6 +203,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="6sP-T8-d02" kind="relationship" relationship="viewControllers" id="OoJ-Xf-nrJ"/>
+                        <segue destination="mRK-Y3-vMy" kind="relationship" relationship="viewControllers" id="QdH-bo-dSP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2h3-mY-c9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,5 +213,7 @@
     </scenes>
     <resources>
         <image name="Udacity Logo" width="256" height="256"/>
+        <image name="list" width="32" height="32"/>
+        <image name="map" width="32" height="32"/>
     </resources>
 </document>
