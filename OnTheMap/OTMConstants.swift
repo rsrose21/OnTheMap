@@ -24,4 +24,11 @@ extension OTMClient {
         static let UserID = "users/{id}"
     }
     
+    // MARK: - JSON Response Keys
+    struct JSONResponseKeys {
+        
+        // MARK: General
+        static let StatusMessage = "status_message"
+        static let StatusCode = "status_code"
+    }
 }

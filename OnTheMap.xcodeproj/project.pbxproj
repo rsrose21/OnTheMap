@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268731B49930B0073635C /* OTMConvenience.swift */; };
+		3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268751B49A3CD0073635C /* AuthUser.swift */; };
+		3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268771B49ACFB0073635C /* TabViewController.swift */; };
 		3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962251B3737B400C87CBF /* AppDelegate.swift */; };
 		3DF962281B3737B400C87CBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962271B3737B400C87CBF /* ViewController.swift */; };
 		3DF9622B1B3737B400C87CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF962291B3737B400C87CBF /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DF268731B49930B0073635C /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
+		3DF268751B49A3CD0073635C /* AuthUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		3DF268771B49ACFB0073635C /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		3DF962201B3737B400C87CBF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF962241B3737B400C87CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF962251B3737B400C87CBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 			children = (
 				3DF962481B37396D00C87CBF /* OTMClient.swift */,
 				3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */,
+				3DF268731B49930B0073635C /* OTMConvenience.swift */,
+				3DF268751B49A3CD0073635C /* AuthUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF9624C1B376EDC00C87CBF /* LoginViewController.swift */,
+				3DF268771B49ACFB0073635C /* TabViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -245,10 +254,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */,
 				3DF962281B3737B400C87CBF /* ViewController.swift in Sources */,
 				3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */,
 				3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */,
+				3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */,
 				3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */,
+				3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */,
 				3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +457,7 @@
 				3DF962411B3737B400C87CBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DF962421B3737B400C87CBF /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +466,7 @@
 				3DF962441B3737B400C87CBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

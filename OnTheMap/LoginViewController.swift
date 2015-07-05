@@ -47,6 +47,54 @@ class LoginViewController: UIViewController {
         debugTextLabel.textColor = UIColor.whiteColor()
     }
     
+    @IBAction func login() {
+        if self.loginTextField.text == "" {
+            self.displayError("Please enter your email")
+            return
+        }
+        if self.loginPassword.text == "" {
+            self.displayError("Please enter your password")
+            return
+        }
+        OTMClient.sharedInstance().authenticateWithViewController(self.loginTextField.text, password: self.loginPassword.text) { (success, errorString) in
+            if success {
+                self.completeLogin()
+            } else {
+                self.displayError(errorString)
+            }
+        }
+    }
+    
+    // MARK: - LoginViewController
+    
+    func completeLogin() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.debugTextLabel.text = ""
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapTabViewController") as! UINavigationController
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
+    }
+    
+    func displayError(errorString: String?) {
+        dispatch_async(dispatch_get_main_queue(), {
+            if let errorString = errorString {
+                self.debugTextLabel.text = errorString
+            }
+        })
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if (textField == self.loginTextField) {
+            self.loginPassword.becomeFirstResponder()
+        }
+        
+        if (textField == self.loginPassword) {
+            login()
+        }
+        
+        return true;
+    }
+    
     @IBAction func loadSignUp(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(NSURL(string: OTMClient.UdacityConstants.SignUpURL)!)
     }
