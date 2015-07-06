@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import MapKit
 
-class MapViewController : UIViewController, MKMapViewDelegate {
+class MapViewController : UIViewController {
     
     var students: [StudentInformation] = [StudentInformation]()
     
@@ -26,6 +26,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
         // set initial location in Honolulu
         //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         //centerMapOnLocation(initialLocation)
@@ -37,22 +39,18 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         OTMClient.sharedInstance().getStudentLocations { students, error in
             if let students = students {
                 self.students = students
-                /*
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.moviesTableView.reloadData()
-                }
-                */
+                //add pins to the map from student data returned from API
+                self.mapView.addAnnotations(self.students)
+                
+                //force a repaint of the map and center it
+                dispatch_async(dispatch_get_main_queue(), {
+                    let center = self.mapView.centerCoordinate
+                    self.mapView.centerCoordinate = center
+                })
             } else {
                 println(error)
             }
         }
-    }
-    
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        
-        let url = NSURL(string: view.annotation!.subtitle!)!
-        
-        UIApplication.sharedApplication().openURL(url)
     }
     
 }

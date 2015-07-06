@@ -72,9 +72,11 @@ extension OTMClient {
         parameters["count"] = "1"
         // sort by create timestamp descending
         parameters["order"] = "-createdAt"
+        
+        let url : String = ParseConstants.BaseURL + ParseMethods.StudentLocation
 
         /* 2. Make the request */
-        taskForGETMethod(ParseMethods.StudentLocation, parameters: parameters) { JSONResult, error in
+        taskForGETMethod(url, parameters: parameters) { JSONResult, error in
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
@@ -82,9 +84,8 @@ extension OTMClient {
             } else {
                 
                 if let results = JSONResult.valueForKey("results") as? [[String : AnyObject]] {
-                    println(results)
-                    //var movies = TMDBMovie.moviesFromResults(results)
-                    var students = [StudentInformation]()
+                    //convert json results to a dictionary of StudentInformation objects
+                    var students = StudentInformation.studentsFromResults(results)
                     completionHandler(result: students, error: nil)
                 } else {
                     completionHandler(result: nil, error: NSError(domain: "getStudentLocations parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentLocations"]))
