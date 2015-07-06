@@ -11,6 +11,7 @@
 		3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268751B49A3CD0073635C /* AuthUser.swift */; };
 		3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268771B49ACFB0073635C /* TabViewController.swift */; };
 		3DF2687A1B49B5EC0073635C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268791B49B5EC0073635C /* MapViewController.swift */; };
+		3DF2687C1B49DAD80073635C /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2687B1B49DAD80073635C /* StudentInformation.swift */; };
 		3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962251B3737B400C87CBF /* AppDelegate.swift */; };
 		3DF962281B3737B400C87CBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962271B3737B400C87CBF /* ViewController.swift */; };
 		3DF9622B1B3737B400C87CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF962291B3737B400C87CBF /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		3DF268751B49A3CD0073635C /* AuthUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		3DF268771B49ACFB0073635C /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		3DF268791B49B5EC0073635C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3DF2687B1B49DAD80073635C /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		3DF962201B3737B400C87CBF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF962241B3737B400C87CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF962251B3737B400C87CBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				3DF9624A1B373A8C00C87CBF /* OTMConstants.swift */,
 				3DF268731B49930B0073635C /* OTMConvenience.swift */,
 				3DF268751B49A3CD0073635C /* AuthUser.swift */,
+				3DF2687B1B49DAD80073635C /* StudentInformation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */,
 				3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */,
 				3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */,
+				3DF2687C1B49DAD80073635C /* StudentInformation.swift in Sources */,
 				3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

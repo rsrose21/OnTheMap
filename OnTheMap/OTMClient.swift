@@ -20,6 +20,7 @@ class OTMClient : NSObject {
     
     // MARK: - GET
     
+    // MARK: helper class function from The Movie Manager
     func taskForGETMethod(method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
@@ -28,7 +29,10 @@ class OTMClient : NSObject {
         /* 2/3. Build the URL and configure the request */
         let urlString = method + OTMClient.escapedParameters(mutableParameters)
         let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
+        let request = NSMutableURLRequest(URL: url)
+        //add the Parse Application ID and API Key for every request
+        request.addValue(OTMClient.ParseConstants.AppID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(OTMClient.ParseConstants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
@@ -50,6 +54,7 @@ class OTMClient : NSObject {
     
     // MARK: - POST
     
+    // MARK: helper class function from The Movie Manager
     func taskForPOSTMethod(method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
@@ -85,6 +90,7 @@ class OTMClient : NSObject {
     
     // MARK: - Helpers
     
+    // MARK: helper class function from The Movie Manager
     /* Helper: Substitute the key for the value that is contained within the method name */
     class func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
         if method.rangeOfString("{\(key)}") != nil {
@@ -110,6 +116,7 @@ class OTMClient : NSObject {
         return error
     }
     
+    // MARK: helper class function from The Movie Manager
     /* Helper: Given raw JSON, return a usable Foundation object */
     class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
         
@@ -124,6 +131,7 @@ class OTMClient : NSObject {
         }
     }
     
+    // MARK: helper class function from The Movie Manager
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
     class func escapedParameters(parameters: [String : AnyObject]) -> String {
         

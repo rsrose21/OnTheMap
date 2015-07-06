@@ -47,7 +47,18 @@ class LoginViewController: UIViewController {
         debugTextLabel.textColor = UIColor.whiteColor()
     }
     
+    func disableButtons(){
+        self.loginButton.enabled = false
+        self.signUpButton.enabled = false
+    }
+    
+    func enableButtons(){
+        self.loginButton.enabled = true
+        self.signUpButton.enabled = true
+    }
+    
     @IBAction func login() {
+        //validate text fields
         if self.loginTextField.text == "" {
             self.displayError("Please enter your email")
             return
@@ -56,7 +67,17 @@ class LoginViewController: UIViewController {
             self.displayError("Please enter your password")
             return
         }
+        //show network activity indicator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        self.disableButtons()
+        
+        //Hide keyboard
+        self.view.endEditing(true)
+        
         OTMClient.sharedInstance().authenticateWithViewController(self.loginTextField.text, password: self.loginPassword.text) { (success, errorString) in
+            //Hide network activity indicator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.enableButtons()
             if success {
                 self.completeLogin()
             } else {
