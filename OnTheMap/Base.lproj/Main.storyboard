@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="1537" y="1699"/>
         </scene>
-        <!--Root View Controller-->
+        <!--List View Controller-->
         <scene sceneID="NsP-Qm-RLw">
             <objects>
-                <tableViewController id="qDj-aT-xvT" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qDj-aT-xvT" userLabel="List View Controller" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jdF-OJ-73p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="qDj-aT-xvT" id="rAj-6c-4e8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2nc-9R-V1I" userLabel="On The Map"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="2nc-9R-V1I" userLabel="On The Map"/>
                     <connections>
                         <outlet property="tableData" destination="jdF-OJ-73p" id="gNB-6U-hup"/>
                     </connections>
@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="3298" y="2550"/>
         </scene>
-        <!--Map View Controller-->
+        <!--On The Map-->
         <scene sceneID="UCd-JS-7JS">
             <objects>
-                <viewController storyboardIdentifier="mapViewController" id="mRK-Y3-vMy" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" title="On The Map" id="mRK-Y3-vMy" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KOp-gw-4Vk"/>
                         <viewControllerLayoutGuide type="bottom" id="yZT-Ml-aNn"/>
@@ -157,31 +157,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-T6-1WY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="500"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DjQ-T6-1WY" secondAttribute="trailing" id="9tV-tw-wJn"/>
-                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="top" secondItem="avy-in-5gj" secondAttribute="top" id="MfH-BZ-Ine"/>
-                            <constraint firstAttribute="bottom" secondItem="DjQ-T6-1WY" secondAttribute="bottom" id="gjQ-wA-wUj"/>
-                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="leading" secondItem="avy-in-5gj" secondAttribute="leading" id="nRI-EF-5au"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="leading" secondItem="avy-in-5gj" secondAttribute="leading" id="kCc-6v-Ew6"/>
+                            <constraint firstAttribute="trailing" secondItem="DjQ-T6-1WY" secondAttribute="trailing" id="ozw-8e-WgS"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="centerY" secondItem="avy-in-5gj" secondAttribute="centerY" id="tuV-Wy-0c8"/>
+                            <constraint firstItem="yZT-Ml-aNn" firstAttribute="top" secondItem="DjQ-T6-1WY" secondAttribute="bottom" constant="1" id="yYV-Ua-euX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="map" id="sHv-e9-WUB"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="sHv-e9-WUB"/>
                     <connections>
                         <outlet property="mapView" destination="DjQ-T6-1WY" id="On7-Zv-BbF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltb-Lp-3aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3301" y="973"/>
+            <point key="canvasLocation" x="3289" y="1057"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--List-->
         <scene sceneID="k46-P0-sNT">
             <objects>
                 <navigationController storyboardIdentifier="mapTabViewController" id="6sP-T8-d02" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list" id="mrD-SJ-ctE"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="mrD-SJ-ctE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZEY-pP-Kig">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -13,5 +13,6 @@ class TabViewController : UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "On The Map"
+        self.navigationItem.rightBarButtonItems = self.setupNavBar()
     }
 }

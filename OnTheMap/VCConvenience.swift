@@ -20,4 +20,12 @@ extension UIViewController {
             }
         })
     }
+    
+    func setupNavBar() -> [UIBarButtonItem] {
+        //create buttons to add to nav bar
+        let pinButton = UIBarButtonItem(image: UIImage(named: "pin.pdf"), style: .Plain, target: self, action: Selector("addLocation"))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: Selector("refreshLocations"))
+        
+        return [refreshButton, pinButton]
+    }
 }

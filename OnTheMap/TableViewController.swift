@@ -17,7 +17,8 @@ class TableViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "On The Map"
+
+        self.navigationItem.rightBarButtonItems = self.setupNavBar()
     }
     
     override func viewWillAppear(animated: Bool) {

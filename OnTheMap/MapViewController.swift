@@ -28,9 +28,7 @@ class MapViewController : UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
-        // set initial location in Honolulu
-        //let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        //centerMapOnLocation(initialLocation)
+        self.navigationItem.rightBarButtonItems = self.setupNavBar()
     }
     
     override func viewWillAppear(animated: Bool) {
