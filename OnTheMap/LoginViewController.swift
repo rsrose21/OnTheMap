@@ -91,7 +91,7 @@ class LoginViewController: UIViewController {
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("mapViewController") as! UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabViewController") as! UIViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }

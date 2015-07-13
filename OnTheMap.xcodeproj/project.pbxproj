@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0350BC1B53E470003EF2A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0350BB1B53E470003EF2A8 /* TableViewController.swift */; };
 		3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268731B49930B0073635C /* OTMConvenience.swift */; };
 		3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268751B49A3CD0073635C /* AuthUser.swift */; };
 		3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268771B49ACFB0073635C /* TabViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0350BB1B53E470003EF2A8 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3DF268731B49930B0073635C /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
 		3DF268751B49A3CD0073635C /* AuthUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		3DF268771B49ACFB0073635C /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				3DF9624C1B376EDC00C87CBF /* LoginViewController.swift */,
 				3DF268771B49ACFB0073635C /* TabViewController.swift */,
 				3DF268791B49B5EC0073635C /* MapViewController.swift */,
+				3D0350BB1B53E470003EF2A8 /* TableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				3DF2687E1B4A12680073635C /* VCMapView.swift in Sources */,
 				3DF2687A1B49B5EC0073635C /* MapViewController.swift in Sources */,
 				3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */,
+				3D0350BC1B53E470003EF2A8 /* TableViewController.swift in Sources */,
 				3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */,
 				3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */,
 				3DF2687C1B49DAD80073635C /* StudentInformation.swift in Sources */,
