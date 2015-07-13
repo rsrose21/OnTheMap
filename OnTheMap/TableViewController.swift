@@ -31,7 +31,7 @@ class TableViewController : UITableViewController {
                     self.tableView.reloadData()
                 })
             } else {
-                println(error)
+                self.displayError("Unable to load data")
             }
         }
     }

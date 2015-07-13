@@ -48,7 +48,7 @@ class MapViewController : UIViewController {
                     self.mapView.centerCoordinate = center
                 })
             } else {
-                println(error)
+                self.displayError("Unable to load data")
             }
         }
     }

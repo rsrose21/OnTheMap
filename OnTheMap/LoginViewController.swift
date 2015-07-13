@@ -96,16 +96,6 @@ class LoginViewController: UIViewController {
         })
     }
     
-    func displayError(errorString: String?) {
-        dispatch_async(dispatch_get_main_queue(), {
-            if let errorString = errorString {
-                let alert = UIAlertController(title: nil, message: errorString, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-        })
-    }
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (textField == self.loginTextField) {
             self.loginPassword.becomeFirstResponder()
