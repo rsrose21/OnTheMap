@@ -24,6 +24,10 @@ class TableViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        refreshLocations()
+    }
+    
+    func refreshLocations() {
         OTMClient.sharedInstance().getStudentLocations { students, error in
             if let students = students {
                 self.students = students

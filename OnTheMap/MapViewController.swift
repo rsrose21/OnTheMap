@@ -28,12 +28,17 @@ class MapViewController : UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        //UINavigationController(rootViewController: MapViewController())
         self.navigationItem.rightBarButtonItems = self.setupNavBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        refreshLocations()
+    }
+    
+    func refreshLocations() {
         OTMClient.sharedInstance().getStudentLocations { students, error in
             if let students = students {
                 self.students = students

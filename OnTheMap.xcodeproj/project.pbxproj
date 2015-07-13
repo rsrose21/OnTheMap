@@ -16,7 +16,6 @@
 		3DF2687C1B49DAD80073635C /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2687B1B49DAD80073635C /* StudentInformation.swift */; };
 		3DF2687E1B4A12680073635C /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2687D1B4A12680073635C /* VCMapView.swift */; };
 		3DF962261B3737B400C87CBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962251B3737B400C87CBF /* AppDelegate.swift */; };
-		3DF962281B3737B400C87CBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF962271B3737B400C87CBF /* ViewController.swift */; };
 		3DF9622B1B3737B400C87CBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF962291B3737B400C87CBF /* Main.storyboard */; };
 		3DF9622D1B3737B400C87CBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9622C1B3737B400C87CBF /* Images.xcassets */; };
 		3DF962301B3737B400C87CBF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9622E1B3737B400C87CBF /* LaunchScreen.xib */; };
@@ -48,7 +47,6 @@
 		3DF962201B3737B400C87CBF /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF962241B3737B400C87CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF962251B3737B400C87CBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DF962271B3737B400C87CBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DF9622A1B3737B400C87CBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DF9622C1B3737B400C87CBF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DF9622F1B3737B400C87CBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				3DF962471B3738DD00C87CBF /* View */,
 				3DF962461B3738D400C87CBF /* Controller */,
 				3DF962451B3738C700C87CBF /* Model */,
-				3DF962271B3737B400C87CBF /* ViewController.swift */,
 				3DF962291B3737B400C87CBF /* Main.storyboard */,
 				3DF9622C1B3737B400C87CBF /* Images.xcassets */,
 				3DF9622E1B3737B400C87CBF /* LaunchScreen.xib */,
@@ -270,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */,
-				3DF962281B3737B400C87CBF /* ViewController.swift in Sources */,
 				3DF962491B37396D00C87CBF /* OTMClient.swift in Sources */,
 				3DF9624B1B373A8C00C87CBF /* OTMConstants.swift in Sources */,
 				3DF2687E1B4A12680073635C /* VCMapView.swift in Sources */,

@@ -145,38 +145,56 @@
             <point key="canvasLocation" x="3298" y="2550"/>
         </scene>
         <!--On The Map-->
+        <scene sceneID="mPx-C8-fvQ">
+            <objects>
+                <navigationController title="On The Map" id="jpf-Jr-uQn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="m7M-1Y-XFn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YCz-Ji-mbB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mRK-Y3-vMy" kind="relationship" relationship="rootViewController" id="BET-YO-km1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08g-9A-Gnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3111" y="1033"/>
+        </scene>
+        <!--Map View Controller-->
         <scene sceneID="UCd-JS-7JS">
             <objects>
-                <viewController storyboardIdentifier="mapViewController" title="On The Map" id="mRK-Y3-vMy" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" title="Map View Controller" id="mRK-Y3-vMy" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KOp-gw-4Vk"/>
                         <viewControllerLayoutGuide type="bottom" id="yZT-Ml-aNn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="avy-in-5gj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-T6-1WY">
-                                <rect key="frame" x="0.0" y="50" width="600" height="500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="leading" secondItem="avy-in-5gj" secondAttribute="leading" id="kCc-6v-Ew6"/>
-                            <constraint firstAttribute="trailing" secondItem="DjQ-T6-1WY" secondAttribute="trailing" id="ozw-8e-WgS"/>
-                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="centerY" secondItem="avy-in-5gj" secondAttribute="centerY" id="tuV-Wy-0c8"/>
-                            <constraint firstItem="yZT-Ml-aNn" firstAttribute="top" secondItem="DjQ-T6-1WY" secondAttribute="bottom" constant="1" id="yYV-Ua-euX"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="top" secondItem="KOp-gw-4Vk" secondAttribute="bottom" id="M5F-Wg-VbV"/>
+                            <constraint firstItem="DjQ-T6-1WY" firstAttribute="leading" secondItem="avy-in-5gj" secondAttribute="leading" id="gSh-Va-Qd0"/>
+                            <constraint firstAttribute="trailing" secondItem="DjQ-T6-1WY" secondAttribute="trailing" id="gwQ-pr-KPg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DjQ-T6-1WY" secondAttribute="bottom" constant="-64" id="iLR-11-6bR"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="sHv-e9-WUB"/>
+                    <navigationItem key="navigationItem" id="187-Hj-E6j"/>
                     <connections>
                         <outlet property="mapView" destination="DjQ-T6-1WY" id="On7-Zv-BbF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltb-Lp-3aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3289" y="1057"/>
+            <point key="canvasLocation" x="3893" y="1033"/>
         </scene>
         <!--List-->
         <scene sceneID="k46-P0-sNT">
@@ -195,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="3298" y="1712"/>
         </scene>
-        <!--On The Map-->
+        <!--List Navigation Controller-->
         <scene sceneID="Dro-67-Ict">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" title="On The Map" id="Qas-9B-we7" customClass="TabViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" title="List Navigation Controller" id="Qas-9B-we7" customClass="TabViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="YXg-jO-bkU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -206,7 +224,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mRK-Y3-vMy" kind="relationship" relationship="viewControllers" id="QdH-bo-dSP"/>
+                        <segue destination="jpf-Jr-uQn" kind="relationship" relationship="viewControllers" id="cOP-7l-D6U"/>
                         <segue destination="6sP-T8-d02" kind="relationship" relationship="viewControllers" id="W2y-RX-XKJ"/>
                     </connections>
                 </tabBarController>
