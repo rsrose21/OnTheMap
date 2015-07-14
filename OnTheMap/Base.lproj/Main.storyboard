@@ -187,7 +187,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="sHv-e9-WUB"/>
-                    <navigationItem key="navigationItem" id="187-Hj-E6j"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="187-Hj-E6j"/>
                     <connections>
                         <outlet property="mapView" destination="DjQ-T6-1WY" id="On7-Zv-BbF"/>
                     </connections>
