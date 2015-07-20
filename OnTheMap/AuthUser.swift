@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import MapKit
 
 class AuthUser : NSObject {
     
     var sessionId : String?
     var accountId : String?
+    var selectedLocation : MKPlacemark?
+    var mapString : String?
 }
