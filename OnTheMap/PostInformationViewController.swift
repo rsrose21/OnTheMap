@@ -12,11 +12,17 @@ import MapKit
 
 class PostInformationViewController : UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var locationView: UIView!
+    @IBOutlet weak var mapUIView: UIView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationTextField: UITextView!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationView.hidden = false
+        self.mapUIView.hidden = true
         
         //Customise the submit button
         self.submitButton.layer.cornerRadius = 10
@@ -53,7 +59,11 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
                     appDelegate.loggedUser.mapString = address
                     
                     println(address)
+                    self.mapView.addAnnotation(appDelegate.loggedUser.selectedLocation)
+                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                     //update view
+                    self.locationView.hidden = true
+                    self.mapUIView.hidden = true
                 }
                 
             } else {

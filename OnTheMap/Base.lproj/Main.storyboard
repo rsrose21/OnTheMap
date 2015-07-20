@@ -189,62 +189,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-hK-z2M">
-                                <rect key="frame" x="192" y="72" width="235" height="119"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-YC-8Ly" userLabel="Map">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-qC-mk7">
+                                        <rect key="frame" x="0.0" y="236" width="600" height="400"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="235" id="SSp-T1-NVU"/>
-                                    <constraint firstAttribute="height" constant="119" id="sj9-8L-uQf"/>
+                                    <constraint firstAttribute="height" constant="600" id="V9t-1x-aDk"/>
+                                    <constraint firstAttribute="width" constant="600" id="emw-y6-tUR"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Where are you studying today?">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="32" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82K-fK-XX1">
-                                <rect key="frame" x="243" y="519" width="132" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Enter Location" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
+                                        <rect key="frame" x="0.0" y="167" width="600" height="274"/>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.28235294119999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="274" id="QQg-zp-G7D"/>
+                                            <constraint firstAttribute="width" constant="600" id="qUQ-x5-CaI"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-hK-z2M">
+                                        <rect key="frame" x="191" y="52" width="235" height="119"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="235" id="SSp-T1-NVU"/>
+                                            <constraint firstAttribute="height" constant="119" id="sj9-8L-uQf"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Where are you studying today?">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="32" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82K-fK-XX1">
+                                        <rect key="frame" x="234" y="506" width="132" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="132" id="eha-XS-ecX"/>
+                                        </constraints>
+                                        <state key="normal" title="Find on the Map">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="findLocation:" destination="3H1-4e-ceB" eventType="touchUpInside" id="b2S-2h-cfq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="eha-XS-ecX"/>
+                                    <constraint firstAttribute="height" constant="600" id="2RB-Wm-Mdh"/>
+                                    <constraint firstAttribute="width" constant="600" id="DVD-N6-gJR"/>
                                 </constraints>
-                                <state key="normal" title="Find on the Map">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="findLocation:" destination="3H1-4e-ceB" eventType="touchUpInside" id="b2S-2h-cfq"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Enter Location" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
-                                <rect key="frame" x="0.0" y="207" width="600" height="274"/>
-                                <color key="backgroundColor" red="0.1450980392" green="0.28235294119999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="274" id="QQg-zp-G7D"/>
-                                    <constraint firstAttribute="width" constant="600" id="qUQ-x5-CaI"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="82K-fK-XX1" secondAttribute="centerY" constant="-236" id="5fu-ee-anG"/>
-                            <constraint firstAttribute="centerX" secondItem="1UF-hK-z2M" secondAttribute="centerX" constant="-9.5" id="6nr-sw-uMt"/>
-                            <constraint firstItem="1UF-hK-z2M" firstAttribute="top" secondItem="rc9-9A-ra0" secondAttribute="bottom" constant="8" id="dDl-UK-Oqw"/>
-                            <constraint firstAttribute="centerY" secondItem="1UF-hK-z2M" secondAttribute="centerY" constant="168.5" id="gZo-fm-8En"/>
-                            <constraint firstItem="djD-Qk-1ct" firstAttribute="top" secondItem="82K-fK-XX1" secondAttribute="bottom" constant="47" id="h5C-av-PKl"/>
-                            <constraint firstAttribute="centerX" secondItem="82K-fK-XX1" secondAttribute="centerX" constant="-9" id="hNu-C2-lCc"/>
-                            <constraint firstItem="1UF-hK-z2M" firstAttribute="top" secondItem="rc9-9A-ra0" secondAttribute="bottom" constant="8" id="ibM-c7-rnk"/>
-                            <constraint firstItem="djD-Qk-1ct" firstAttribute="top" secondItem="82K-fK-XX1" secondAttribute="bottom" constant="47" id="jTJ-zb-NY5"/>
-                            <constraint firstItem="djD-Qk-1ct" firstAttribute="top" secondItem="ohf-ij-fXS" secondAttribute="bottom" constant="119" id="nzc-fn-9bc"/>
-                            <constraint firstItem="ohf-ij-fXS" firstAttribute="top" secondItem="1UF-hK-z2M" secondAttribute="bottom" constant="16" id="uhi-gC-YHh"/>
-                            <constraint firstItem="82K-fK-XX1" firstAttribute="top" secondItem="ohf-ij-fXS" secondAttribute="bottom" constant="38" id="vVa-1L-y0h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bU4-Zk-r0g" secondAttribute="trailing" constant="-16" id="0RG-sS-5Lx"/>
+                            <constraint firstItem="djD-Qk-1ct" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="bottom" id="Rkf-9r-QUs"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="tEU-OL-7v6" secondAttribute="leadingMargin" constant="-16" id="TPt-6F-5id"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="tEU-OL-7v6" secondAttribute="topMargin" id="vyl-o6-jNE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k4d-MC-AWa">
@@ -256,6 +272,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="locationTextField" destination="ohf-ij-fXS" id="2oK-lt-Ins"/>
+                        <outlet property="locationView" destination="bU4-Zk-r0g" id="XNV-cw-FN4"/>
+                        <outlet property="mapUIView" destination="iIa-YC-8Ly" id="iC5-ct-dWJ"/>
+                        <outlet property="mapView" destination="0eT-qC-mk7" id="bnb-2Z-BH5"/>
                         <outlet property="submitButton" destination="82K-fK-XX1" id="k06-iV-nOY"/>
                     </connections>
                 </viewController>
