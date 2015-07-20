@@ -63,7 +63,8 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
                     self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                     //update view
                     self.locationView.hidden = true
-                    self.mapUIView.hidden = true
+                    self.mapUIView.hidden = false
+                    self.mapView.hidden = false
                 }
                 
             } else {

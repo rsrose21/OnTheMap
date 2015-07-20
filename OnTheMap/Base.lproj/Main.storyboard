@@ -192,15 +192,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-YC-8Ly" userLabel="Map">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-qC-mk7">
-                                        <rect key="frame" x="0.0" y="236" width="600" height="400"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-qC-mk7">
+                                        <rect key="frame" x="0.0" y="200" width="600" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="CzE-VC-XE1"/>
+                                            <constraint firstAttribute="height" constant="400" id="V3m-0D-SJ0"/>
+                                        </constraints>
                                     </mapView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="V9t-1x-aDk"/>
-                                    <constraint firstAttribute="width" constant="600" id="emw-y6-tUR"/>
-                                </constraints>
                             </view>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -249,18 +249,18 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="2RB-Wm-Mdh"/>
-                                    <constraint firstAttribute="width" constant="600" id="DVD-N6-gJR"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="bU4-Zk-r0g" secondAttribute="trailing" constant="-16" id="0RG-sS-5Lx"/>
-                            <constraint firstItem="djD-Qk-1ct" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="bottom" id="Rkf-9r-QUs"/>
-                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="tEU-OL-7v6" secondAttribute="leadingMargin" constant="-16" id="TPt-6F-5id"/>
-                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="tEU-OL-7v6" secondAttribute="topMargin" id="vyl-o6-jNE"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="tEU-OL-7v6" secondAttribute="leading" id="9fX-dA-LUy"/>
+                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="top" id="KIn-So-Saj"/>
+                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="trailing" secondItem="bU4-Zk-r0g" secondAttribute="trailing" id="L3b-G3-C9q"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="bottom" secondItem="djD-Qk-1ct" secondAttribute="top" id="NRf-Xk-cxG"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="tEU-OL-7v6" secondAttribute="top" id="QzK-wi-2tq"/>
+                            <constraint firstAttribute="trailing" secondItem="iIa-YC-8Ly" secondAttribute="trailing" id="hzH-eB-VX2"/>
+                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="bottom" secondItem="djD-Qk-1ct" secondAttribute="top" id="jyk-hz-zZp"/>
+                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="leading" secondItem="bU4-Zk-r0g" secondAttribute="leading" id="xET-og-FT6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k4d-MC-AWa">
