@@ -192,6 +192,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-YC-8Ly" userLabel="Map">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzK-Xc-FGq">
+                                        <rect key="frame" x="150" y="100" width="300" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-qC-mk7">
                                         <rect key="frame" x="0.0" y="200" width="600" height="400"/>
                                         <constraints>
@@ -199,8 +204,23 @@
                                             <constraint firstAttribute="height" constant="400" id="V3m-0D-SJ0"/>
                                         </constraints>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av6-yA-ASU">
+                                        <rect key="frame" x="277" y="500" width="49" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submit:" destination="3H1-4e-ceB" eventType="touchUpInside" id="vSw-4v-taL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="av6-yA-ASU" secondAttribute="centerY" constant="-215" id="vJM-h5-TG2"/>
+                                    <constraint firstAttribute="centerX" secondItem="av6-yA-ASU" secondAttribute="centerX" constant="-1.5" id="yFM-Ll-rmt"/>
+                                    <constraint firstAttribute="centerX" secondItem="hzK-Xc-FGq" secondAttribute="centerX" id="yTq-V0-e2W"/>
+                                </constraints>
                             </view>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -276,6 +296,7 @@
                         <outlet property="mapUIView" destination="iIa-YC-8Ly" id="iC5-ct-dWJ"/>
                         <outlet property="mapView" destination="0eT-qC-mk7" id="bnb-2Z-BH5"/>
                         <outlet property="submitButton" destination="82K-fK-XX1" id="k06-iV-nOY"/>
+                        <outlet property="urlTextField" destination="hzK-Xc-FGq" id="igR-Qa-69J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNX-pb-Zuq" userLabel="First Responder" sceneMemberID="firstResponder"/>

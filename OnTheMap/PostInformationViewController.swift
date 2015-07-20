@@ -17,6 +17,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationTextField: UITextView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var urlTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,4 +74,17 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
             }
         };
     }
+    
+    @IBAction func submit() {
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if(textField == self.urlTextField){
+            self.submit()
+        }
+        
+        return true
+    }
+
 }
