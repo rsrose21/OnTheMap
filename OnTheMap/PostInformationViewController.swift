@@ -11,4 +11,9 @@ import UIKit
 
 class PostInformationViewController : UIViewController, UITextFieldDelegate {
     
+
+    @IBAction func closeModal(sender: AnyObject) {
+        //close modal viewcontroller
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
