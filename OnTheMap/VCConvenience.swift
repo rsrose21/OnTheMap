@@ -28,4 +28,9 @@ extension UIViewController {
         
         return [refreshButton, pinButton]
     }
+    
+    func addLocation() {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PostInfoNavigationController") as! PostInformationViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 }

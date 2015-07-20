@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D0350BC1B53E470003EF2A8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0350BB1B53E470003EF2A8 /* TableViewController.swift */; };
 		3D0350BE1B543351003EF2A8 /* VCConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0350BD1B543351003EF2A8 /* VCConvenience.swift */; };
+		3D9645951B5D27DF00200062 /* PostInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9645941B5D27DF00200062 /* PostInformationViewController.swift */; };
 		3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268731B49930B0073635C /* OTMConvenience.swift */; };
 		3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268751B49A3CD0073635C /* AuthUser.swift */; };
 		3DF268781B49ACFB0073635C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF268771B49ACFB0073635C /* TabViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		3D0350BB1B53E470003EF2A8 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3D0350BD1B543351003EF2A8 /* VCConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCConvenience.swift; sourceTree = "<group>"; };
+		3D9645941B5D27DF00200062 /* PostInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInformationViewController.swift; sourceTree = "<group>"; };
 		3DF268731B49930B0073635C /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
 		3DF268751B49A3CD0073635C /* AuthUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		3DF268771B49ACFB0073635C /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				3DF268771B49ACFB0073635C /* TabViewController.swift */,
 				3DF268791B49B5EC0073635C /* MapViewController.swift */,
 				3D0350BB1B53E470003EF2A8 /* TableViewController.swift */,
+				3D9645941B5D27DF00200062 /* PostInformationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				3DF2687A1B49B5EC0073635C /* MapViewController.swift in Sources */,
 				3DF268761B49A3CD0073635C /* AuthUser.swift in Sources */,
 				3D0350BC1B53E470003EF2A8 /* TableViewController.swift in Sources */,
+				3D9645951B5D27DF00200062 /* PostInformationViewController.swift in Sources */,
 				3DF9624D1B376EDC00C87CBF /* LoginViewController.swift in Sources */,
 				3DF268741B49930B0073635C /* OTMConvenience.swift in Sources */,
 				3D0350BE1B543351003EF2A8 /* VCConvenience.swift in Sources */,
