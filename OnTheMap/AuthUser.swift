@@ -15,4 +15,5 @@ class AuthUser : NSObject {
     var accountId : String?
     var selectedLocation : MKPlacemark?
     var mapString : String?
+    var mediaUrl : NSURL?
 }

@@ -59,13 +59,12 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
                     appDelegate.loggedUser.selectedLocation = MKPlacemark(placemark: placemark)
                     appDelegate.loggedUser.mapString = address
                     
-                    println(address)
+                    //add location entered to map and display
                     self.mapView.addAnnotation(appDelegate.loggedUser.selectedLocation)
                     self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                     //update view
                     self.locationView.hidden = true
                     self.mapUIView.hidden = false
-                    self.mapView.hidden = false
                 }
                 
             } else {
@@ -76,7 +75,54 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submit() {
+        //Hide the keyboard
+        self.view.endEditing(true)
         
+        //Disable button
+        self.submitButton.enabled = false
+        
+        //Validate URL
+        var addedUrl = self.urlTextField.text
+        
+        if isValidUrl(addedUrl) {
+            //Url valid
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.loggedUser.mediaUrl = NSURL(string: addedUrl)
+            
+            //save data
+            
+            //close modal view
+            self.dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            self.displayError("Please enter a valid URL")
+        }
+    }
+    
+    /**
+    * Method is meant to validate the URL address. It checks whether connection can be made to the supplied URL address.
+    * Method will return false either if url is not valid or connection to the URL address cannot be made (due to the network failure
+    * for example). (http://stackoverflow.com/questions/1471201/how-to-validate-an-url-on-the-iphone)
+    */
+    func validateUrl (stringURL : NSString) -> Bool {
+        
+        var urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        var urlTest = NSPredicate.predicateWithSubstitutionVariables(predicate)
+        
+        return predicate.evaluateWithObject(stringURL)
+    }
+    
+    func isValidUrl(url: String) -> Bool {
+        //first test if we have a proper URL string
+        let valid = self.validateUrl(url)
+        if (valid) {
+            //check whether connection can be made to the supplied URL address
+            let request = NSURLRequest(URL: NSURL(string: url)!)
+            
+            return NSURLConnection.canHandleRequest(request)
+        } else {
+            return false
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
