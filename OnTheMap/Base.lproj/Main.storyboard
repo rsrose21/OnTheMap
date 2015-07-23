@@ -225,12 +225,11 @@
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
+                                    <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
                                         <rect key="frame" x="0.0" y="167" width="600" height="274"/>
                                         <color key="backgroundColor" red="0.1450980392" green="0.28235294119999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="274" id="QQg-zp-G7D"/>
-                                            <constraint firstAttribute="width" constant="600" id="wEs-4s-Kgp"/>
+                                            <constraint firstAttribute="height" constant="274" id="hop-l5-Plc"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -252,7 +251,7 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82K-fK-XX1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82K-fK-XX1">
                                         <rect key="frame" x="234" y="506" width="132" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -270,9 +269,12 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="82K-fK-XX1" secondAttribute="centerX" id="HxC-eb-hWL"/>
-                                    <constraint firstAttribute="trailing" secondItem="ohf-ij-fXS" secondAttribute="trailing" id="nMd-nX-x0j"/>
+                                    <constraint firstItem="1UF-hK-z2M" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bU4-Zk-r0g" secondAttribute="top" constant="52" id="J0m-2U-JHE"/>
+                                    <constraint firstItem="ohf-ij-fXS" firstAttribute="leading" secondItem="bU4-Zk-r0g" secondAttribute="leading" id="YIL-ko-DSX"/>
+                                    <constraint firstItem="82K-fK-XX1" firstAttribute="top" secondItem="ohf-ij-fXS" secondAttribute="bottom" constant="65" id="aJA-FH-dAT"/>
+                                    <constraint firstItem="ohf-ij-fXS" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="top" constant="167" id="clX-VW-QVQ"/>
+                                    <constraint firstItem="ohf-ij-fXS" firstAttribute="centerX" secondItem="82K-fK-XX1" secondAttribute="centerX" id="qMH-fq-vVv"/>
                                     <constraint firstItem="1UF-hK-z2M" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="top" constant="52" id="rXY-kB-bnd"/>
-                                    <constraint firstItem="ohf-ij-fXS" firstAttribute="leading" secondItem="bU4-Zk-r0g" secondAttribute="leading" id="tsX-gK-QXJ"/>
                                     <constraint firstAttribute="centerX" secondItem="1UF-hK-z2M" secondAttribute="centerX" id="v0q-OQ-Bax"/>
                                 </constraints>
                             </view>
