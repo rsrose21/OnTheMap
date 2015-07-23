@@ -35,6 +35,8 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
         //set placeholder text for UITextView
         locationTextField.text = "Enter Location"
         locationTextField.textColor = UIColor.whiteColor()
+        //URLs should start with a protocol
+        urlTextField.text = "http://"
     }
 
     @IBAction func closeModal(sender: AnyObject) {
@@ -100,13 +102,12 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
             //save data
-            OTMClient.sharedInstance().getAccountDetails(appDelegate.loggedUser.accountId!) { (success, errorString) in
+            OTMClient.sharedInstance().postUserData(appDelegate.loggedUser.accountId!) { (success, errorString) in
                 //Hide network activity indicator
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 
                 if success {
                     //close modal view
-                    println("account details found")
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.displayError(errorString)

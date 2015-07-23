@@ -69,6 +69,9 @@ class OTMClient : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
+        //add the Parse Application ID and API Key for every request
+        request.addValue(OTMClient.ParseConstants.AppID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(OTMClient.ParseConstants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in

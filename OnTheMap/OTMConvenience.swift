@@ -156,7 +156,33 @@ extension OTMClient {
             if let error = error {
                 completionHandler(success: false, errorString: "Unable to Add Location Data")
             } else {
-                completionHandler(success: true, errorString: nil)
+                println(JSONResult)
+                if let errorString = JSONResult.valueForKey("error") as? String {
+                    completionHandler(success: false, errorString: errorString)
+                } else {
+                    completionHandler(success: true, errorString: nil)
+                }
+            }
+        }
+    }
+    
+    func postUserData(accountId: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+        
+        /* Chain completion handlers for each request so that they run one after the other */
+        self.getAccountDetails(accountId) { (success, errorString) in
+            
+            if success {
+                
+                self.postUserLocation() { (success, errorString) in
+                    
+                    if success {
+                        completionHandler(success: success, errorString: errorString)
+                    } else {
+                        completionHandler(success: success, errorString: errorString)
+                    }
+                }
+            } else {
+                completionHandler(success: success, errorString: errorString)
             }
         }
     }
