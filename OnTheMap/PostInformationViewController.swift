@@ -89,10 +89,21 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.loggedUser.mediaUrl = NSURL(string: addedUrl)
             
-            //save data
+            //Show network activity indicator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            //close modal view
-            self.dismissViewControllerAnimated(true, completion: nil)
+            //save data
+            OTMClient.sharedInstance().getAccountDetails(appDelegate.loggedUser.accountId!) { (success, errorString) in
+                //Hide network activity indicator
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                
+                if success {
+                    //close modal view
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    self.displayError(errorString)
+                }
+            }
         } else {
             self.displayError("Please enter a valid URL")
         }

@@ -42,7 +42,7 @@ extension OTMClient {
                 
                 //Check status for error
                 if let status = jsonDict["status"] as? Double {
-                    println(status)
+                    //return error to callback
                     completionHandler(success: false, errorString: "Invalid Login")
                 }
                 
@@ -90,6 +90,73 @@ extension OTMClient {
                 } else {
                     completionHandler(result: nil, error: NSError(domain: "getStudentLocations parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentLocations"]))
                 }
+            }
+        }
+    }
+    
+    func getAccountDetails(accountId: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
+        
+        var mutableMethod : String = UdacityConstants.BaseURL
+        mutableMethod = OTMClient.subtituteKeyInMethod(mutableMethod, key: UdacityMethods.UserID, value: accountId)!
+        let request = NSMutableURLRequest(URL: NSURL(string: mutableMethod)!)
+        
+        /* 4. Make the request */
+        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+            
+            /* 5/6. Parse the data and use the data (happens in completion handler) */
+            if let error = downloadError {
+                let newError = OTMClient.errorForData(data, response: response, error: error)
+                completionHandler(success: false, errorString: "Get Account Details Error")
+            } else {
+                //FOR ALL RESPONSES FROM THE UDACITY API, YOU WILL NEED TO SKIP THE FIRST 5 CHARACTERS OF THE RESPONSE.
+                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+                
+                let jsonDict = NSJSONSerialization.JSONObjectWithData(newData, options: nil, error: nil)! as! NSDictionary
+                
+                //Check status for error
+                if let status = jsonDict["status"] as? Double {
+                    //return error to callback
+                    completionHandler(success: false, errorString: "No Account Found")
+                }
+                
+                //did we get the user's info?
+                if let user = jsonDict["user"] as? NSDictionary {
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.loggedUser.firstName = user["first_name"] as? String
+                    appDelegate.loggedUser.lastName = user["last_name"] as? String
+                    
+                    completionHandler(success: true, errorString: nil)
+                }
+            }
+        }
+        
+        /* 7. Start the request */
+        task.resume()
+    }
+    
+    func postUserLocation(completionHandler: (success: Bool, errorString: String?) -> Void) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var parameters = [String: AnyObject]()
+        let url : String = ParseConstants.BaseURL + ParseMethods.StudentLocation
+        let jsonBody : [String: AnyObject] = [
+            "uniqueKey": appDelegate.loggedUser.accountId as String!,
+            "firstName": appDelegate.loggedUser.firstName as String!,
+            "lastName": appDelegate.loggedUser.lastName as String!,
+            "mapString": appDelegate.loggedUser.mapString as String!,
+            "mediaURL": appDelegate.loggedUser.mediaUrl!.absoluteString! as String!,
+            "latitude": appDelegate.loggedUser.latitude as Double,
+            "longitude": appDelegate.loggedUser.longitude as Double
+        ]
+        
+        /* 2. Make the request */
+        let task = taskForPOSTMethod(url, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandler(success: false, errorString: "Unable to Add Location Data")
+            } else {
+                completionHandler(success: true, errorString: nil)
             }
         }
     }

@@ -16,4 +16,20 @@ class AuthUser : NSObject {
     var selectedLocation : MKPlacemark?
     var mapString : String?
     var mediaUrl : NSURL?
+    var firstName : String?
+    var lastName : String?
+    
+    //returns latitude for user
+    var latitude : Double{
+        get {
+            return selectedLocation?.coordinate.latitude as Double!
+        }
+    }
+    
+    //returns longitude for user
+    var longitude : Double {
+        get {
+            return selectedLocation?.coordinate.longitude as Double!
+        }
+    }
 }
