@@ -93,6 +93,9 @@ class OTMClient : NSObject {
     // MARK: helper class function from The Movie Manager
     /* Helper: Substitute the key for the value that is contained within the method name */
     class func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
+        println("method", method)
+        println("key", key)
+        println("value", value)
         if method.rangeOfString("{\(key)}") != nil {
             return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
         } else {

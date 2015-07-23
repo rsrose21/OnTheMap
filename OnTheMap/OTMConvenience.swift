@@ -50,7 +50,7 @@ extension OTMClient {
                 if let account = jsonDict["account"] as? NSDictionary {
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.loggedUser.accountId = account["key"] as? String
-                    
+                    println(appDelegate.loggedUser.accountId)
                     if let session = jsonDict["session"] as? NSDictionary{
                         appDelegate.loggedUser.sessionId = session["id"] as? String
                         completionHandler(success: true, errorString: nil)
@@ -97,7 +97,7 @@ extension OTMClient {
     func getAccountDetails(accountId: String, completionHandler: (success: Bool, errorString: String?) -> Void) {
         
         var mutableMethod : String = UdacityConstants.BaseURL
-        mutableMethod = OTMClient.subtituteKeyInMethod(mutableMethod, key: UdacityMethods.UserID, value: accountId)!
+        mutableMethod += "users/" + accountId as String!
         let request = NSMutableURLRequest(URL: NSURL(string: mutableMethod)!)
         
         /* 4. Make the request */

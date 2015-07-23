@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class PostInformationViewController : UIViewController, UITextFieldDelegate {
+class PostInformationViewController : UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var mapUIView: UIView!
@@ -22,12 +22,19 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationTextField.delegate = self
+        urlTextField.delegate = self
+        
         self.locationView.hidden = false
         self.mapUIView.hidden = true
         
         //Customise the submit button
         self.submitButton.layer.cornerRadius = 10
         self.submitButton.clipsToBounds = true
+        
+        //set placeholder text for UITextView
+        locationTextField.text = "Enter Location"
+        locationTextField.textColor = UIColor.whiteColor()
     }
 
     @IBAction func closeModal(sender: AnyObject) {
@@ -99,6 +106,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
                 
                 if success {
                     //close modal view
+                    println("account details found")
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.displayError(errorString)
@@ -142,6 +150,18 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Enter Location" {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter Location"
+        }
     }
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -211,7 +211,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="submit:" destination="3H1-4e-ceB" eventType="touchUpInside" id="vSw-4v-taL"/>
+                                            <action selector="submit" destination="3H1-4e-ceB" eventType="touchUpInside" id="oKB-gL-9gG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -222,30 +222,29 @@
                                     <constraint firstAttribute="centerX" secondItem="hzK-Xc-FGq" secondAttribute="centerX" id="yTq-V0-e2W"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
+                            <view clipsSubviews="YES" contentMode="scaleAspectFill" restorationIdentifier="Location" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-Zk-r0g" userLabel="Location">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Enter Location" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
+                                    <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-ij-fXS">
                                         <rect key="frame" x="0.0" y="167" width="600" height="274"/>
                                         <color key="backgroundColor" red="0.1450980392" green="0.28235294119999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="274" id="QQg-zp-G7D"/>
-                                            <constraint firstAttribute="width" constant="600" id="qUQ-x5-CaI"/>
+                                            <constraint firstAttribute="width" constant="600" id="wEs-4s-Kgp"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-hK-z2M">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-hK-z2M">
                                         <rect key="frame" x="191" y="52" width="235" height="119"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="235" id="SSp-T1-NVU"/>
-                                            <constraint firstAttribute="height" constant="119" id="sj9-8L-uQf"/>
+                                            <constraint firstAttribute="width" constant="235" id="7IU-HB-24q"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Where are you studying today?">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="32" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
@@ -269,18 +268,25 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="82K-fK-XX1" secondAttribute="centerX" id="HxC-eb-hWL"/>
+                                    <constraint firstAttribute="trailing" secondItem="ohf-ij-fXS" secondAttribute="trailing" id="nMd-nX-x0j"/>
+                                    <constraint firstItem="1UF-hK-z2M" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="top" constant="52" id="rXY-kB-bnd"/>
+                                    <constraint firstItem="ohf-ij-fXS" firstAttribute="leading" secondItem="bU4-Zk-r0g" secondAttribute="leading" id="tsX-gK-QXJ"/>
+                                    <constraint firstAttribute="centerX" secondItem="1UF-hK-z2M" secondAttribute="centerX" id="v0q-OQ-Bax"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="tEU-OL-7v6" secondAttribute="leading" id="9fX-dA-LUy"/>
-                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="top" secondItem="bU4-Zk-r0g" secondAttribute="top" id="KIn-So-Saj"/>
-                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="trailing" secondItem="bU4-Zk-r0g" secondAttribute="trailing" id="L3b-G3-C9q"/>
-                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="bottom" secondItem="djD-Qk-1ct" secondAttribute="top" id="NRf-Xk-cxG"/>
-                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="tEU-OL-7v6" secondAttribute="top" id="QzK-wi-2tq"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="trailing" secondItem="iIa-YC-8Ly" secondAttribute="trailing" id="4BS-5d-QIx"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="bottom" secondItem="djD-Qk-1ct" secondAttribute="top" id="Pni-Xi-sRP"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="tEU-OL-7v6" secondAttribute="top" id="c72-iR-U5w"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="tEU-OL-7v6" secondAttribute="leading" id="dhA-Bv-q2b"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="top" secondItem="iIa-YC-8Ly" secondAttribute="top" id="gVV-nU-5af"/>
                             <constraint firstAttribute="trailing" secondItem="iIa-YC-8Ly" secondAttribute="trailing" id="hzH-eB-VX2"/>
                             <constraint firstItem="iIa-YC-8Ly" firstAttribute="bottom" secondItem="djD-Qk-1ct" secondAttribute="top" id="jyk-hz-zZp"/>
-                            <constraint firstItem="iIa-YC-8Ly" firstAttribute="leading" secondItem="bU4-Zk-r0g" secondAttribute="leading" id="xET-og-FT6"/>
+                            <constraint firstItem="bU4-Zk-r0g" firstAttribute="leading" secondItem="iIa-YC-8Ly" secondAttribute="leading" id="ysO-IQ-y7O"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k4d-MC-AWa">
