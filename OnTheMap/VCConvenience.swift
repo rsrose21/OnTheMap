@@ -62,6 +62,7 @@ extension UIViewController {
     func customizeButton(button: UIButton) {
         button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 17.0)
         button.backgroundColor = UIColor.whiteColor()
+        button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         //Add some padding to our button

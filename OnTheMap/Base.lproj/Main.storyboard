@@ -286,11 +286,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findButton" destination="82K-fK-XX1" id="Adr-pF-m5e"/>
                         <outlet property="locationTextField" destination="ohf-ij-fXS" id="2oK-lt-Ins"/>
                         <outlet property="locationView" destination="bU4-Zk-r0g" id="XNV-cw-FN4"/>
                         <outlet property="mapUIView" destination="iIa-YC-8Ly" id="iC5-ct-dWJ"/>
                         <outlet property="mapView" destination="0eT-qC-mk7" id="bnb-2Z-BH5"/>
-                        <outlet property="submitButton" destination="82K-fK-XX1" id="k06-iV-nOY"/>
+                        <outlet property="submitButton" destination="av6-yA-ASU" id="gUj-YI-BAB"/>
                         <outlet property="urlTextField" destination="hzK-Xc-FGq" id="igR-Qa-69J"/>
                     </connections>
                 </viewController>

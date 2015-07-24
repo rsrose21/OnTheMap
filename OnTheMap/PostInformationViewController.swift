@@ -14,10 +14,11 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var mapUIView: UIView!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var findButton: UIButton!
     @IBOutlet weak var locationTextField: UITextView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
         locationTextField.delegate = self
         urlTextField.delegate = self
         
+        //hide our map view and show the text entry view on load
         self.locationView.hidden = false
         self.mapUIView.hidden = true
         
@@ -34,6 +36,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     func configureUI() {
         //customize the submit button
         self.customizeButton(submitButton)
+        self.customizeButton(findButton)
         
         //set placeholder text for UITextView
         locationTextField.text = "Enter Location"
