@@ -58,4 +58,19 @@ extension UIViewController {
         }
     }
     
+    // add custom styles to buttons
+    func customizeButton(button: UIButton) {
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 17.0)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        //Add some padding to our button
+        //http://stackoverflow.com/questions/31353302/change-a-uibuttons-text-padding-programmatically-in-swift
+        var padding = 5.0
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, CGFloat(padding))
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, CGFloat(padding), 0, 0)
+        //adjust button width since we added some padding
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
 }
