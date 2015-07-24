@@ -24,11 +24,15 @@ class TableViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        refreshLocations()
+        refreshLocations(false)
     }
     
-    func refreshLocations() {
-        OTMClient.sharedInstance().getStudentLocations { students, error in
+    func refreshLocationsFromNav() {
+        self.refreshLocations(true)
+    }
+    
+    func refreshLocations(refresh: Bool) {
+        OTMClient.sharedInstance().getStudentLocations(refresh, completionHandler: { students, error in
             if let students = students {
                 self.students = students
                 dispatch_async(dispatch_get_main_queue(), {
@@ -38,7 +42,7 @@ class TableViewController : UITableViewController {
             } else {
                 self.displayError("Unable to load data")
             }
-        }
+        })
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

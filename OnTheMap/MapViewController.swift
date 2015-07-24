@@ -12,8 +12,6 @@ import MapKit
 
 class MapViewController : UIViewController {
     
-    var students: [StudentInformation] = [StudentInformation]()
-    
     @IBOutlet weak var mapView: MKMapView!
     
     //define a rectangular region to get proper zoom radius
@@ -35,15 +33,19 @@ class MapViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        refreshLocations()
+        refreshLocations(false)
     }
     
-    func refreshLocations() {
-        OTMClient.sharedInstance().getStudentLocations { students, error in
+    func refreshLocationsFromNav() {
+        self.refreshLocations(true)
+    }
+    
+    func refreshLocations(refresh: Bool) {
+        OTMClient.sharedInstance().getStudentLocations(refresh, completionHandler: { students, error in
             if let students = students {
-                self.students = students
+   
                 //add pins to the map from student data returned from API
-                self.mapView.addAnnotations(self.students)
+                self.mapView.addAnnotations(students)
                 
                 //force a repaint of the map and center it
                 dispatch_async(dispatch_get_main_queue(), {
@@ -53,7 +55,7 @@ class MapViewController : UIViewController {
             } else {
                 self.displayError("Unable to load data")
             }
-        }
+        })
     }
     
 }

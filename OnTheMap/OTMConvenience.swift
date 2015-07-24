@@ -65,30 +65,36 @@ extension OTMClient {
     
     // MARK: - GET Convenience Methods
     
-    func getStudentLocations(completionHandler: (result: [StudentInformation]?, error: NSError?) -> Void) {
-        
-        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        var parameters = [String: AnyObject]()
-        parameters["count"] = "1"
-        // sort by create timestamp descending
-        parameters["order"] = "-createdAt"
-        
-        let url : String = ParseConstants.BaseURL + ParseMethods.StudentLocation
-
-        /* 2. Make the request */
-        taskForGETMethod(url, parameters: parameters) { JSONResult, error in
+    func getStudentLocations(refresh: Bool, completionHandler: (result: [StudentInformation]?, error: NSError?) -> Void) {
+  
+        //first check the cache unless a refresh was forced
+        if (refresh == false && self.students.count > 0) {
+            println("returned from cache")
+            completionHandler(result: students, error: nil)
+        } else {
+            /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+            var parameters = [String: AnyObject]()
+            parameters["count"] = "1"
+            // sort by create timestamp descending
+            parameters["order"] = "-createdAt"
             
-            /* 3. Send the desired value(s) to completion handler */
-            if let error = error {
-                completionHandler(result: nil, error: error)
-            } else {
+            let url : String = ParseConstants.BaseURL + ParseMethods.StudentLocation
+            
+            /* 2. Make the request */
+            taskForGETMethod(url, parameters: parameters) { JSONResult, error in
                 
-                if let results = JSONResult.valueForKey("results") as? [[String : AnyObject]] {
-                    //convert json results to a dictionary of StudentInformation objects
-                    var students = StudentInformation.studentsFromResults(results)
-                    completionHandler(result: students, error: nil)
+                /* 3. Send the desired value(s) to completion handler */
+                if let error = error {
+                    completionHandler(result: nil, error: error)
                 } else {
-                    completionHandler(result: nil, error: NSError(domain: "getStudentLocations parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentLocations"]))
+                    
+                    if let results = JSONResult.valueForKey("results") as? [[String : AnyObject]] {
+                        //convert json results to a dictionary of StudentInformation objects
+                        self.students = StudentInformation.studentsFromResults(results)
+                        completionHandler(result: self.students, error: nil)
+                    } else {
+                        completionHandler(result: nil, error: NSError(domain: "getStudentLocations parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentLocations"]))
+                    }
                 }
             }
         }
@@ -173,10 +179,20 @@ extension OTMClient {
             
             if success {
                 
+                //now that we have the user's details, post their data to the Parse API
                 self.postUserLocation() { (success, errorString) in
                     
                     if success {
-                        completionHandler(success: success, errorString: errorString)
+                        
+                        //we need to update the cache so our new location displays
+                        self.getStudentLocations(true, completionHandler: { students, error in
+                            if let students = students {
+                                completionHandler(success: true, errorString: nil)
+                            } else {
+                                completionHandler(success: false, errorString: "Unable to update student cache after posting location")
+                            }
+                        })
+                        
                     } else {
                         completionHandler(success: success, errorString: errorString)
                     }

@@ -24,7 +24,7 @@ extension UIViewController {
     func setupNavBar() -> [UIBarButtonItem] {
         //create buttons to add to nav bar
         let pinButton = UIBarButtonItem(image: UIImage(named: "pin.pdf"), style: .Plain, target: self, action: Selector("addLocation"))
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: Selector("refreshLocations"))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: Selector("refreshLocationsFromNav"))
         
         return [refreshButton, pinButton]
     }
@@ -33,4 +33,5 @@ extension UIViewController {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PostNavigationController") as! UIViewController
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
 }

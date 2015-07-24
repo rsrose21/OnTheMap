@@ -11,7 +11,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var debugTextLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginPassword: UITextField!
@@ -30,21 +29,6 @@ class LoginViewController: UIViewController {
         
         /* Get the shared URL session */
         session = NSURLSession.sharedSession()
-        
-        /* Configure the UI */
-        self.configureUI()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        //make sure debug text is empty
-        self.debugTextLabel.text = ""
-    }
-    
-    func configureUI() {
-        /* Configure debug text label */
-        debugTextLabel.font = UIFont(name: "AvenirNext-Medium", size: 20)
-        debugTextLabel.textColor = UIColor.whiteColor()
     }
     
     func disableButtons(){
@@ -90,7 +74,6 @@ class LoginViewController: UIViewController {
     
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.debugTextLabel.text = ""
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("TabViewController") as! UIViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })

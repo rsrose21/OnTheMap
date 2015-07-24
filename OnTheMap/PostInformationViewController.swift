@@ -14,7 +14,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var mapUIView: UIView!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: BorderedButton!
     @IBOutlet weak var locationTextField: UITextView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var urlTextField: UITextField!
@@ -28,9 +28,16 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
         self.locationView.hidden = false
         self.mapUIView.hidden = true
         
+        self.configureUI()
+    }
+    
+    func configureUI() {
         //Customise the submit button
-        self.submitButton.layer.cornerRadius = 10
-        self.submitButton.clipsToBounds = true
+        submitButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 17.0)
+        //submitButton.highlightedBackingColor = UIColor(red: 0.0, green: 0.298, blue: 0.686, alpha:1.0)
+        //submitButton.backingColor = UIColor(red: 0.0, green:0.502, blue:0.839, alpha: 1.0)
+        submitButton.backgroundColor = UIColor(red: 0.0, green:0.502, blue:0.839, alpha: 1.0)
+        submitButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
         //set placeholder text for UITextView
         locationTextField.text = "Enter Location"

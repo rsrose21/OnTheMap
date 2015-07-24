@@ -12,6 +12,7 @@ class OTMClient : NSObject {
     
     /* Shared session */
     var session: NSURLSession
+    var students: [StudentInformation] = [StudentInformation]()
     
     override init() {
         session = NSURLSession.sharedSession()
@@ -92,19 +93,6 @@ class OTMClient : NSObject {
     }
     
     // MARK: - Helpers
-    
-    // MARK: helper class function from The Movie Manager
-    /* Helper: Substitute the key for the value that is contained within the method name */
-    class func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
-        println("method", method)
-        println("key", key)
-        println("value", value)
-        if method.rangeOfString("{\(key)}") != nil {
-            return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
-        } else {
-            return nil
-        }
-    }
     
     /* Helper: Given a response with error, see if a status_message is returned, otherwise return the previous error */
     class func errorForData(data: NSData?, response: NSURLResponse?, error: NSError) -> NSError {
