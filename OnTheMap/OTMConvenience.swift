@@ -50,11 +50,58 @@ extension OTMClient {
                 if let account = jsonDict["account"] as? NSDictionary {
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.loggedUser.accountId = account["key"] as? String
-                    println(appDelegate.loggedUser.accountId)
+                    
                     if let session = jsonDict["session"] as? NSDictionary{
                         appDelegate.loggedUser.sessionId = session["id"] as? String
                         completionHandler(success: true, errorString: nil)
                     }
+                }
+            }
+        }
+        
+        /* 7. Start the request */
+        task.resume()
+    }
+    
+    // Mark: - Logout user from Udacity API
+    
+    func logoutUser(completionHandler: (success: Bool, errorString: String?) -> Void) {
+        let method : String = UdacityConstants.BaseURL + UdacityMethods.AuthenticationSession
+        let request = NSMutableURLRequest(URL: NSURL(string: method)!)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in sharedCookieStorage.cookies as! [NSHTTPCookie] {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.addValue(xsrfCookie.value!, forHTTPHeaderField: "X-XSRF-Token")
+        }
+        
+        /* 4. Make the request */
+        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+            
+            /* 5/6. Parse the data and use the data (happens in completion handler) */
+            if let error = downloadError {
+                let newError = OTMClient.errorForData(data, response: response, error: error)
+                completionHandler(success: false, errorString: "Login Error")
+            } else {
+                //FOR ALL RESPONSES FROM THE UDACITY API, YOU WILL NEED TO SKIP THE FIRST 5 CHARACTERS OF THE RESPONSE.
+                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+                
+                let jsonDict = NSJSONSerialization.JSONObjectWithData(newData, options: nil, error: nil)! as! NSDictionary
+                
+                //Check status for error
+                if let status = jsonDict["status"] as? Double {
+                    //return error to callback
+                    completionHandler(success: false, errorString: "Unable to Logout")
+                }
+                
+                //Check if logout was successfull
+                if let session = jsonDict["session"] as? NSDictionary{
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.loggedUser.sessionId = nil
+                    completionHandler(success: true, errorString: nil)
                 }
             }
         }
@@ -69,7 +116,6 @@ extension OTMClient {
   
         //first check the cache unless a refresh was forced
         if (refresh == false && self.students.count > 0) {
-            println("returned from cache")
             completionHandler(result: students, error: nil)
         } else {
             /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
@@ -162,7 +208,7 @@ extension OTMClient {
             if let error = error {
                 completionHandler(success: false, errorString: "Unable to Add Location Data")
             } else {
-                println(JSONResult)
+                
                 if let errorString = JSONResult.valueForKey("error") as? String {
                     completionHandler(success: false, errorString: errorString)
                 } else {

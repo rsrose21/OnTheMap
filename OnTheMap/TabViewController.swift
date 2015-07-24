@@ -14,5 +14,6 @@ class TabViewController : UITabBarController {
         super.viewDidLoad()
         self.title = "On The Map"
         self.navigationItem.rightBarButtonItems = self.setupNavBar()
+        self.navigationItem.leftBarButtonItems = self.setupLogoutButton()
     }
 }

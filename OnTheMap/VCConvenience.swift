@@ -29,9 +29,33 @@ extension UIViewController {
         return [refreshButton, pinButton]
     }
     
+    func setupLogoutButton() -> [UIBarButtonItem] {
+        //create buttons to add to nav bar
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: Selector("logout"))
+        
+        return [logoutButton]
+    }
+    
     func addLocation() {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PostNavigationController") as! UIViewController
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func logout() {
+        //Show network activity indicator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        OTMClient.sharedInstance().logoutUser() { (success, errorString) in
+            //Hide network activity indicator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if success {
+                let controller = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+                self.presentViewController(controller, animated: true, completion: nil)
+            } else {
+                self.displayError(errorString)
+            }
+        }
     }
     
 }

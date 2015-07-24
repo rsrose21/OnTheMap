@@ -19,6 +19,7 @@ class TableViewController : UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItems = self.setupNavBar()
+        self.navigationItem.leftBarButtonItems = self.setupLogoutButton()
     }
     
     override func viewWillAppear(animated: Bool) {
