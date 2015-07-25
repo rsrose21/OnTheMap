@@ -9,14 +9,14 @@
 import Foundation
 import MapKit
 
-class StudentInformation: NSObject, MKAnnotation {
+struct StudentInformation {
     var firstName : String?
     var lastName : String?
     var mediaUrl : String?
     var latitude : Double?
     var longitude : Double?
-    //required property for MKAnnotation
-    let coordinate: CLLocationCoordinate2D
+    //for adding pins to the map
+    var annotation: MKPointAnnotation
     
     init?(dictionary: [String: AnyObject]) {
         if let s = dictionary["firstName"] as? String {
@@ -40,8 +40,11 @@ class StudentInformation: NSObject, MKAnnotation {
                 self.latitude = CLLocationDegrees(s)
             }
         }
-        self.coordinate = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
-        //super.init()
+        //set annotation properties for pin display
+        annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
+        annotation.title = self.title
+        annotation.subtitle = self.subtitle
     }
     
     //computed property

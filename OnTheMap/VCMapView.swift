@@ -21,7 +21,7 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if let annotation = annotation as? StudentInformation {
+        if let annotation = annotation as? MKPointAnnotation {
             let identifier = "pin"
             var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)

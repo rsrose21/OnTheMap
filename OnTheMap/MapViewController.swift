@@ -14,14 +14,6 @@ class MapViewController : UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    //define a rectangular region to get proper zoom radius
-    let regionRadius: CLLocationDistance = 1000
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-            regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +38,9 @@ class MapViewController : UIViewController {
             if let students = students {
    
                 //add pins to the map from student data returned from API
-                self.mapView.addAnnotations(students)
+                for (var i = 0; i < students.count; i += 1) {
+                    self.mapView.addAnnotation(students[i].annotation)
+                }
                 
                 //force a repaint of the map and center it
                 dispatch_async(dispatch_get_main_queue(), {
