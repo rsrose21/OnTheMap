@@ -11,24 +11,27 @@ import UIKit
 
 class TableViewController : UITableViewController {
     
-    let client = OTMClient.sharedInstance()
+    var client: OTMClient!
     @IBOutlet var tableData: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.rightBarButtonItems = self.setupNavBar()
-        self.navigationItem.leftBarButtonItems = self.setupLogoutButton()
+        //get a reference to our client instance, which provides access to the student data
+        client = OTMClient.sharedInstance()
+        //set navigation bar buttons
+        navigationItem.rightBarButtonItems = setupNavBar()
+        navigationItem.leftBarButtonItems = setupLogoutButton()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //load data, will pull from cache if already set
         refreshLocations(false)
     }
     
     func refreshLocationsFromNav() {
-        self.refreshLocations(true)
+        //force a call for new data
+        refreshLocations(true)
     }
     
     func refreshLocations(refresh: Bool) {
@@ -68,7 +71,7 @@ class TableViewController : UITableViewController {
         
         UIApplication.sharedApplication().openURL(url)
         
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

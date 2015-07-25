@@ -27,16 +27,16 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
         urlTextField.delegate = self
         
         //hide our map view and show the text entry view on load
-        self.locationView.hidden = false
-        self.mapUIView.hidden = true
+        locationView.hidden = false
+        mapUIView.hidden = true
         
-        self.configureUI()
+        configureUI()
     }
     
     func configureUI() {
         //customize the submit button
-        self.customizeButton(submitButton)
-        self.customizeButton(findButton)
+        customizeButton(submitButton)
+        customizeButton(findButton)
         
         //set placeholder text for UITextView
         locationTextField.text = "Enter Location"
@@ -47,15 +47,15 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
 
     @IBAction func closeModal(sender: AnyObject) {
         //close modal viewcontroller
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func findLocation(sender: AnyObject) {
         //Hide keyboard
-        self.view.endEditing(true)
+        view.endEditing(true)
         
         //Try to geocode string
-        var address = self.locationTextField.text
+        var address = locationTextField.text
         
         //Display activity indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -91,13 +91,13 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     
     @IBAction func submit() {
         //Hide the keyboard
-        self.view.endEditing(true)
+        view.endEditing(true)
         
         //Disable button
-        self.submitButton.enabled = false
+        submitButton.enabled = false
         
         //Validate URL
-        var addedUrl = self.urlTextField.text
+        var addedUrl = urlTextField.text
         
         if isValidUrl(addedUrl) {
             //Url valid
@@ -120,7 +120,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
                 }
             }
         } else {
-            self.displayError("Please enter a valid URL")
+            displayError("Please enter a valid URL")
         }
     }
     
@@ -140,7 +140,7 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     
     func isValidUrl(url: String) -> Bool {
         //first test if we have a proper URL string
-        let valid = self.validateUrl(url)
+        let valid = validateUrl(url)
         if (valid) {
             //check whether connection can be made to the supplied URL address
             let request = NSURLRequest(URL: NSURL(string: url)!)
@@ -152,8 +152,8 @@ class PostInformationViewController : UIViewController, UITextFieldDelegate, UIT
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if(textField == self.urlTextField){
-            self.submit()
+        if(textField == urlTextField){
+            submit()
         }
         
         return true

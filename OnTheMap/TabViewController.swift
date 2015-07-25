@@ -12,8 +12,9 @@ class TabViewController : UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "On The Map"
-        self.navigationItem.rightBarButtonItems = self.setupNavBar()
-        self.navigationItem.leftBarButtonItems = self.setupLogoutButton()
+        //update title in navigation bar
+        title = "On The Map"
+        navigationItem.rightBarButtonItems = setupNavBar()
+        navigationItem.leftBarButtonItems = setupLogoutButton()
     }
 }

@@ -32,33 +32,33 @@ class LoginViewController: UIViewController {
     }
     
     func disableButtons(){
-        self.loginButton.enabled = false
-        self.signUpButton.enabled = false
+        loginButton.enabled = false
+        signUpButton.enabled = false
     }
     
     func enableButtons(){
-        self.loginButton.enabled = true
-        self.signUpButton.enabled = true
+        loginButton.enabled = true
+        signUpButton.enabled = true
     }
     
     @IBAction func login() {
         //validate text fields
-        if self.loginTextField.text == "" {
-            self.displayError("Please enter your email")
+        if loginTextField.text == "" {
+            displayError("Please enter your email")
             return
         }
-        if self.loginPassword.text == "" {
-            self.displayError("Please enter your password")
+        if loginPassword.text == "" {
+            displayError("Please enter your password")
             return
         }
         //show network activity indicator
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        self.disableButtons()
+        disableButtons()
         
         //Hide keyboard
-        self.view.endEditing(true)
+        view.endEditing(true)
         
-        OTMClient.sharedInstance().authenticateWithViewController(self.loginTextField.text, password: self.loginPassword.text) { (success, errorString) in
+        OTMClient.sharedInstance().authenticateWithViewController(loginTextField.text, password: loginPassword.text) { (success, errorString) in
             //Hide network activity indicator
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             self.enableButtons()
@@ -80,11 +80,11 @@ class LoginViewController: UIViewController {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField == self.loginTextField) {
-            self.loginPassword.becomeFirstResponder()
+        if (textField == loginTextField) {
+            loginPassword.becomeFirstResponder()
         }
         
-        if (textField == self.loginPassword) {
+        if (textField == loginPassword) {
             login()
         }
         

@@ -18,19 +18,20 @@ class MapViewController : UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
-        
-        self.navigationItem.rightBarButtonItems = self.setupNavBar()
-        self.navigationItem.leftBarButtonItems = self.setupLogoutButton()
+        //set navigation bar buttons
+        navigationItem.rightBarButtonItems = setupNavBar()
+        navigationItem.leftBarButtonItems = setupLogoutButton()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //load data - will pull from cache if available, otherwise calls API for fresh data
         refreshLocations(false)
     }
     
     func refreshLocationsFromNav() {
-        self.refreshLocations(true)
+        //force a refresh for new data if clicked from navigation bar
+        refreshLocations(true)
     }
     
     func refreshLocations(refresh: Bool) {

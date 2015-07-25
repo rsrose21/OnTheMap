@@ -20,31 +20,31 @@ struct StudentInformation {
     
     init?(dictionary: [String: AnyObject]) {
         if let s = dictionary["firstName"] as? String {
-            self.firstName = s
+            firstName = s
         }
         if let s = dictionary["lastName"] as? String {
-            self.lastName = s
+            lastName = s
         }
         if let s = dictionary["mediaURL"] as? String {
-            self.mediaUrl = s
+            mediaUrl = s
         }
         if let s = dictionary["longitude"] as? Double {
             //the longitude of the student location (ranges from -180 to 180)
             if s > -180.0 && s < 180.0 {
-                self.longitude = CLLocationDegrees(s)
+                longitude = CLLocationDegrees(s)
             }
         }
         if let s = dictionary["latitude"] as? Double {
             //the latitude of the student location (ranges from -90 to 90)
             if s > -90.0 && s < 90.0 {
-                self.latitude = CLLocationDegrees(s)
+                latitude = CLLocationDegrees(s)
             }
         }
         //set annotation properties for pin display
         annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
-        annotation.title = self.title
-        annotation.subtitle = self.subtitle
+        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        annotation.title = title
+        annotation.subtitle = subtitle
     }
     
     //computed property
@@ -53,7 +53,7 @@ struct StudentInformation {
     }
     
     var subtitle: String {
-        return self.mediaUrl!
+        return mediaUrl!
     }
     
     /* Helper: Given an array of dictionaries, convert them to an array of StudentInformation objects */
