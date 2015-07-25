@@ -38,7 +38,7 @@ extension UIViewController {
     
     func addLocation() {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("PostNavigationController") as! UIViewController
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     func logout() {

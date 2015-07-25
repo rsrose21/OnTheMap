@@ -11,8 +11,7 @@ import UIKit
 
 class TableViewController : UITableViewController {
     
-    var students: [StudentInformation] = [StudentInformation]()
-    
+    let client = OTMClient.sharedInstance()
     @IBOutlet var tableData: UITableView!
     
     override func viewDidLoad() {
@@ -33,9 +32,9 @@ class TableViewController : UITableViewController {
     }
     
     func refreshLocations(refresh: Bool) {
-        OTMClient.sharedInstance().getStudentLocations(refresh, completionHandler: { students, error in
+        client.getStudentLocations(refresh, completionHandler: { students, error in
             if let students = students {
-                self.students = students
+                
                 dispatch_async(dispatch_get_main_queue(), {
                     //now that we have data, reload the tableView
                     self.tableView.reloadData()
@@ -48,14 +47,14 @@ class TableViewController : UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return cell count for tableView
-        return self.students.count
+        return client.students.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell", forIndexPath: indexPath) as! UITableViewCell
         
-        var student = self.students[indexPath.item] as StudentInformation
+        var student = OTMClient.sharedInstance().students[indexPath.item] as StudentInformation
         
         cell.textLabel?.text = student.title
         cell.imageView?.image = UIImage(named: "pin")
@@ -64,7 +63,7 @@ class TableViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let student = self.students[indexPath.item] as StudentInformation
+        let student = client.students[indexPath.item] as StudentInformation
         let url = NSURL(string: student.subtitle)!
         
         UIApplication.sharedApplication().openURL(url)
