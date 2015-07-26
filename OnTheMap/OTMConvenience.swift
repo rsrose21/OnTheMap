@@ -33,7 +33,7 @@ extension OTMClient {
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
                 let newError = OTMClient.errorForData(data, response: response, error: error)
-                completionHandler(success: false, errorString: "Login Error")
+                completionHandler(success: false, errorString: "Network Error: Unable to Login")
             } else {
                 //FOR ALL RESPONSES FROM THE UDACITY API, YOU WILL NEED TO SKIP THE FIRST 5 CHARACTERS OF THE RESPONSE.
                 let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
